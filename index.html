@@ -81,6 +81,28 @@
     </div>
 </div>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+    const queryString = encodeURIComponent('SELECT A, B, C, D, E');  // Adjust to your sheet's range and columns
+    const query = new google.visualization.Query(
+      `https://docs.google.com/spreadsheets/d/1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA/gviz/tq?tq=${queryString}`
+    );
+
+    query.send(function(response) {
+      const data = response.getDataTable();
+      const table = new google.visualization.Table(document.getElementById('table_div'));
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+    });
+  }
+</script>
+
+<div id="table_div"></div>
+
+
 <footer>
     <p>&copy; 2025 Andy. All Rights Reserved.</p>
 </footer>
