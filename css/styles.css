@@ -1,28 +1,51 @@
-/* General body Styling */
+/* General Body Styling */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  background-color: #181818; /* Dark background for the page */
+  color: white; /* White text for readability */
   margin: 0;
   padding: 0;
 }
 
-/* Header Styling */
+/* Header Styling - Colorado Avalanche Theme */
 header {
-  background: linear-gradient(135deg, #00d2ff, #3a7bd5); /* Gradient background */
+  background: linear-gradient(135deg, #9e1b32, #003b5c); /* Burgundy to Steel Blue gradient */
   color: white;
   text-align: center;
   padding: 80px 20px; /* Increased padding for more space */
-  border-bottom: 4px solid #333; /* Adds subtle border under the header */
+  border-bottom: 4px solid #333; /* Subtle border under the header */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  position: relative;
 }
 
+/* White stripe to represent the middle of the Colorado Avalanche flag */
+header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 40px; /* Height of the stripe */
+  background-color: white; /* White stripe */
+  transform: translateY(-50%); /* Centers the stripe vertically */
+  z-index: 1;
+}
+
+/* Header Text Styling (Inspired by Colorado Avalanche Logo) */
 header h1 {
   margin: 0;
-  font-size: 3.5em; /* Larger size for the title */
+  font-size: 4.5em; /* Larger size for the title */
   font-weight: 700;
-  letter-spacing: 1px; /* Adds spacing between letters for a modern feel */
+  letter-spacing: 5px; /* Adds spacing between letters for a modern feel */
   text-transform: uppercase; /* Making the title more impactful */
+  background: linear-gradient(45deg, #9e1b32, #003b5c); /* Burgundy and Steel Blue Gradient */
+  background-clip: text; /* Applies the gradient to the text only */
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent; /* Makes the actual text color transparent */
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Darker shadow for depth */
   animation: fadeIn 1s ease-out; /* Fading animation for the title */
+  position: relative;
+  z-index: 2; /* Ensure the text is above the white stripe */
 }
 
 /* Container Styling (Centered Content) */
@@ -41,7 +64,7 @@ header h1 {
 .intro p {
   font-size: 1.3em;
   line-height: 1.8;
-  color: #555; /* Slightly darker text for readability */
+  color: #bbb; /* Slightly lighter text for readability */
   max-width: 900px;
   margin: 0 auto;
   animation: fadeIn 1.5s ease-out;
@@ -50,7 +73,7 @@ header h1 {
 /* Footer Styling */
 footer {
   text-align: center;
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient footer */
+  background: linear-gradient(135deg, #9e1b32, #003b5c); /* Gradient footer */
   color: white;
   padding: 20px 0;
   position: fixed;
@@ -61,23 +84,23 @@ footer {
 }
 
 footer a {
-  color: #ffeb3b; /* Bright accent color for links */
+  color: #F2A900; /* Gold accent color for footer links */
   text-decoration: none;
   font-weight: 500;
 }
 
 footer a:hover {
   text-decoration: underline;
-  color: #ffeb3b;
+  color: #FF6F61; /* Change on hover to the gradient theme */
 }
 
 /* Animation for fading elements */
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -93,14 +116,44 @@ footer a:hover {
 }
 
 #transfer_data th, #transfer_data td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
 }
 
 #transfer_data th {
-  background-color: #f2f2f2;
+  background-color: #9e1b32; /* Burgundy background for header */
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 
 #transfer_data tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+#transfer_data tr:nth-child(odd) {
+  background-color: #e3e3e3; /* Slight contrast for odd rows */
+}
+
+#transfer_data td {
+  color: #333; /* Dark text color for better readability */
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+/* Hover Effects for Table Rows */
+#transfer_data tr:hover {
+  background-color: #FF6F61; /* Hover color from gradient theme */
+  color: white; /* White text on hover */
+}
+
+/* Responsive Table Styling */
+@media (max-width: 768px) {
+  #transfer_data {
+    font-size: 0.9em;
+  }
+
+  header h1 {
+    font-size: 2.8em; /* Adjust header font size for smaller screens */
+  }
 }
