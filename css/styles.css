@@ -7,45 +7,47 @@ body {
   padding: 0;
 }
 
-/* Header Styling - Colorado Avalanche Theme */
+/* Header Styling - High Contrast with Charcoal Logo */
 header {
-  background: linear-gradient(135deg, #9e1b32, #003b5c); /* Burgundy to Steel Blue gradient */
+  display: flex;
+  flex-direction: column; /* Stack the logo and text vertically */
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6f61, #ff9a8b); /* Light vibrant gradient contrast */
   color: white;
-  text-align: center;
   padding: 80px 20px; /* Increased padding for more space */
-  border-bottom: 4px solid #333; /* Subtle border under the header */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  position: relative;
-}
-
-/* White stripe to represent the middle of the Colorado Avalanche flag */
-header::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
+  height: 350px; /* Set height to accommodate the logo and text */
   width: 100%;
-  height: 40px; /* Height of the stripe */
-  background-color: white; /* White stripe */
-  transform: translateY(-50%); /* Centers the stripe vertically */
-  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-/* Header Text Styling (Inspired by Colorado Avalanche Logo) */
-header h1 {
-  margin: 0;
-  font-size: 4.5em; /* Larger size for the title */
-  font-weight: 700;
-  letter-spacing: 5px; /* Adds spacing between letters for a modern feel */
-  text-transform: uppercase; /* Making the title more impactful */
+/* Logo Styling */
+.header-logo {
+  z-index: 2;
+  margin-bottom: 15px; /* Space between logo and text */
+}
+
+.header-logo img {
+  height: 100px; /* Adjust the logo height */
+  width: auto;
+}
+
+/* Header Text Styling */
+.header-text {
+  z-index: 2;
+  text-align: center;
   background: linear-gradient(45deg, #9e1b32, #003b5c); /* Burgundy and Steel Blue Gradient */
-  background-clip: text; /* Applies the gradient to the text only */
+  background-clip: text; /* Apply the gradient to text only */
   -webkit-background-clip: text; /* For Safari */
   color: transparent; /* Makes the actual text color transparent */
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Darker shadow for depth */
+  font-size: 3.5em; /* Larger size for the title */
+  font-weight: 700;
+  letter-spacing: 5px; /* Adds spacing between letters for a modern feel */
+  text-transform: uppercase; /* Making the title more impactful */
   animation: fadeIn 1s ease-out; /* Fading animation for the title */
   position: relative;
-  z-index: 2; /* Ensure the text is above the white stripe */
+  z-index: 2;
 }
 
 /* Container Styling (Centered Content) */
