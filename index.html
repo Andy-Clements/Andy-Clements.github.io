@@ -4,116 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AuksPort Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .intro {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .intro p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        .buttons {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .buttons a {
-            background-color: #007bff;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 5px;
-            margin: 0 15px;
-        }
-        .buttons a:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+
+    <!-- Linking to external CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header>
-    <h1>AuksPort</h1>
-</header>
+    <header>
+        <h1>AuksPort</h1>
+    </header>
 
-<div class="container">
-    <div class="intro">
-        <h2>Welcome!</h2>
-        <p>This is a test website. Here you can find transfer portal prospects and see some metrics!</p>
-        
+    <div class="container">
+        <div class="intro">
+            <h2>Welcome!</h2>
+            <p>This is a test website. Here you can find transfer portal prospects and see some metrics!</p>
+            
+        </div>
     </div>
-</div>
 
-<h3>Player Metrics</h3>
-<table id="transfer_data"></table>
+    <h3>Player Metrics</h3>
+    <table id="transfer_data"></table>
 
-<script>
-        const apiKey= 'AIzaSyDbJOqAmIdtmfTKGKztuto-LXEFxBqTtmo'; // API key created from console.cloud.google.com
-        const sheetId = '1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA'; // the id of the spreadsheet labelled like: https://docs.google.com/spreadsheets/d/1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA/edit?gid=2122775497#gid=2122775497
-        const sheetName = 'TestData01'; // Name of the sheet(tab in case multiple tabs) we want to pull the data from
-        const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`; //Google sheets API v4 URL
-    
-        // Fetch data from the Google Sheet API
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.values) {
-                    const rows = data.values;
-                    const tableName = 'transfer_data';
+    <!-- Linking to external JavaScript file-->
+    <script src="js/scripts.js"></script>
 
-                    // Display data in a table
-                    const table = document.getElementById(tableName);
-                    rows.forEach(row => {
-                        const tr = document.createElement('tr');
-                        row.forEach(cell => {
-                            const td = document.createElement('td');
-                            td.textContent = cell;
-                            tr.appendChild(td);
-                        });
-                        table.appendChild(tr);
-                    });
-                } else {
-                    console.error('No data found in the response');
-                }
-            })
-            .catch(error => console.error('Error fetching data: ', error));
-</script>
-
-<footer>
-    <p>&copy; 2025 AuksPort. All Rights Reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2025 AuksPort. All Rights Reserved.</p>
+    </footer>
     
  
 </body>

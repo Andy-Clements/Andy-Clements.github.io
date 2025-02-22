@@ -1,3 +1,63 @@
-table_div {
-  margin-bottom: 100px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+header h1 {
+  margin: 0;
+  font-size: 3em;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.intro {
+  text-align: center;
+  margin-top: 50px;
+}
+.intro p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#transfer_data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+#transfer_data, #transfer_data th, #transfer_data td {
+  border: 1px solid #ddd;
+}
+
+#transfer_data th, #transfer_data td {
+  padding: 10px;
+  text-align: left;
+}
+
+#transfer_data th {
+  background-color: #f2f2f2;
+}
+
+#transfer_data tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
