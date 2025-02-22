@@ -72,9 +72,61 @@
     <div class="intro">
         <h2>Welcome!</h2>
         <p>This is a test website. Here you can find transfer portal prospects and see some metrics!</p>
+        
     </div>
 </div>
 
+<h3>Player Metrics</h3>
+<table id="transfer_data"></table>
+
+<script>
+        const sheetId = '1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA';
+        const apiUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/od6/public/values?alt=json`;
+
+        // Fetch data from the Google Sheet API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const entry = data.feed.entry;
+                const rows = [];
+                let currentRow = [];
+                let lastRow = 1; // The row counter for your data
+
+                entry.forEach(cell => {
+                    const row = parseInt(cell.gs$cell.row);
+                    const col = parseInt(cell.gs$cell.col);
+                    const value = cell.content.$t;
+
+                    // If the row changes, push the previous row to the table and reset
+                    if (row !== lastRow) {
+                        rows.push(currentRow);
+                        currentRow = [];
+                    }
+
+                    // Add the current cell value to the current row
+                    currentRow[col - 1] = value;
+
+                    lastRow = row;
+                });
+
+                // Push the last row
+                rows.push(currentRow);
+
+                // Display data in a table
+                const table = document.getElementById('transfer_data');
+                rows.forEach(row => {
+                    const tr = document.createElement('tr');
+                    row.forEach(cell => {
+                        const td = document.createElement('td');
+                        td.textContent = cell;
+                        tr.appendChild(td);
+                    });
+                    table.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error fetching data: ', error));
+    </script>
+<!--
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['table']});
@@ -95,11 +147,14 @@
 </script>
 
 <div id="table_div"></div>
-
+-->
 
 <footer>
-    <p>&copy; 2025 Andy. All Rights Reserved.</p>
+    <p>&copy; 2025 AuksPort. All Rights Reserved.</p>
 </footer>
-
+    
+ 
 </body>
 </html>
+
+<!-- https://spreadsheets.google.com/feeds/cells/1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA/od6/public/values?alt=json -->   
