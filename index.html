@@ -80,9 +80,10 @@
 <table id="transfer_data"></table>
 
 <script>
+        const apiKey= 'AIzaSyDbJOqAmIdtmfTKGKztuto-LXEFxBqTtmo'; // API key created from console.cloud.google.com
         const sheetId = '1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA';
-        const apiUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/od6/public/values?alt=json`;
-
+        const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/TestData1?key=${apiKey}`;
+    
         // Fetch data from the Google Sheet API
         fetch(apiUrl)
             .then(response => response.json())
