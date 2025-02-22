@@ -16,7 +16,7 @@ header {
   background: linear-gradient(135deg, #ff6f61, #ff9a8b); /* Light vibrant gradient contrast */
   color: white;
   padding: 80px 20px; /* Increased padding for more space */
-  height: 350px; /* Set height to accommodate the logo and text */
+  height: 50px; /* Set height to accommodate the logo and text */
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
