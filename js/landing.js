@@ -1,3 +1,9 @@
+
+/* Script for handling button actions */
+function openCombines() {
+    window.open('Combines/combines.html', '_blank'); //open new tab in browser to combines.html
+}
+
 /* 
     Fetching the data JavaScript code
 */
@@ -23,7 +29,7 @@ fetch(apiUrl)
                 const tr = document.createElement('tr');
 
                 // Columns from the spreadsheet we want to use
-                const columnsToInclude = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 14, 18, 19, 20, 21, 22, 23, 24];
+                const columnsToInclude = [1, 2, 3, 4, 5, 6, 7, 8, 14, 18, 19, 20, 21, 22, 23];
 
                 columnsToInclude.forEach(index => {
                     const cellValue = row[index] !== undefined && row[index] !== null && row[index] !== ''

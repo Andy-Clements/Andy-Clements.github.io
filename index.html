@@ -6,7 +6,7 @@
     <title>AuksPort Home</title>
 
     <!-- Linking to external CSS file -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -14,6 +14,9 @@
         <img src="images\SmallSquareLogoJpg-removebg-preview.png" alt="AuksPort Logo" class="logo">
     </header>
 
+    <div class="navigation_bar">
+        <button class="combines" onclick="openCombines()"></button>
+    </div>
     <div class="container">
         <div class="intro">
             <h2>Welcome!</h2>
@@ -22,11 +25,12 @@
         </div>
     </div>
 
+    <!-- Table Section -->
     <h3>Player Metrics</h3>
     <table id="transfer_data"></table>
 
     <!-- Linking to external JavaScript file-->
-    <script src="js/scripts.js"></script>
+    <script src="js/landing.js"></script>
 
     <footer>
         <p>&copy; 2025 AuksPort. All Rights Reserved.</p>
