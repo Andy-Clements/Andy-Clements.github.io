@@ -15,11 +15,20 @@ fetch(apiUrl)
             const table = document.getElementById(tableName);
             rows.forEach(row => {
                 const tr = document.createElement('tr');
-                row.forEach(cell => {
-                    const td = document.createElement('td');
-                    td.textContent = cell;
-                    tr.appendChild(td);
+
+                // Columns from the spreadsheet we want to use
+                const columnsToInclude = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 14, 18, 19, 20, 21, 22, 23, 24];
+
+                columnsToInclude.forEach(index => {
+                    const cellValue = row[index] !== undefined && row[index] !== null && row[index] !== ''
+                        ? row[index]
+                        : '\u00A0'; // Non-breaking space for empty cells
+
+                        const td = document.createElement('td');
+                        td.textContent = cellValue; // Set the cell content
+                        tr.appendChild(td);
                 });
+
                 table.appendChild(tr);
             });
         } else {
