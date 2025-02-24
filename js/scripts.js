@@ -34,5 +34,14 @@ fetch(apiUrl)
         } else {
             console.error('No data found in the response');
         }
+
+        // Reset the horizontal scroll position of the window
+        window.scrollTo(0, 0); // This resets both vertical and horizontal scroll positions
+
+        // Reset horizontal scroll position of the specific element
+        const transferDataElement = document.getElementById('transfer_data');
+        if (transferDataElement) {
+            transferDataElement.scrollLeft = 0; // Reset horizontal scroll position of the specific element
+        }
     })
     .catch(error => console.error('Error fetching data: ', error));
