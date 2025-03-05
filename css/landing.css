@@ -7,13 +7,22 @@ body {
   padding: 0;
 }
 
+/* scrolling */
+.barba-container{
+  --transition-speed: 0.6s
+}
+
+.barba-container.exit-done {
+  display: none
+}
+
 /* Header Styling - High Contrast with Charcoal Logo */
 header {
   display: flex;
   flex-direction: column; /* Stack the logo and text vertically */
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #000000, #00FF00); /* Black to Lime Green gradient */
+  background: linear-gradient(45deg, #00FF00, #000000); /* Lime Green to Black Gradient */
   color: lime; /* Lime green text */
   padding: 80px 20px; /* Increased padding for more space */
   height: 50px; /* Set height to accommodate the logo and text */
@@ -50,21 +59,6 @@ header {
   z-index: 2;
 }
 
-/* Navigation bar buttons */
-.navigation_bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.combines{
-  width: 200px;
-  height: 50px;
-  background-image: url('../images/combines.png');
-  background-size: cover;
-  cursor:pointer;
-  background-color: #000000; 
-}
 
 /* Container Styling (Centered Content) for intro */
 .container {
@@ -149,7 +143,7 @@ h3 {
 /* Footer Styling */
 footer {
   text-align: center;
-  background: linear-gradient(45deg, #00FF00, #000000); /* Lime Green to Black Gradient */
+  background: linear-gradient(135deg, #000000, #00FF00); /* Black to Lime Green gradient */
   color: white; /* Lime green text */
   padding: 20px 0;
   position: fixed;

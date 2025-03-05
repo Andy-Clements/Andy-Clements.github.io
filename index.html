@@ -3,20 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>AuksPort Home</title>
 
     <!-- Linking to external CSS file -->
     <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <img src="images\SmallSquareLogoJpg-removebg-preview.png" alt="AuksPort Logo" class="logo">
-    </header>
 
-    <div class="navigation_bar">
-        <button class="combines" onclick="openCombines()"></button>
+    <div data-main data-scrollbar data-barba="wrapper" data-scrollmode="vertical">
+        <!-- Main container-->
+        <main class="barba-container" data-barba="container">
+            <div class="menu-wrapper traditional-menu">
+                <nav class="menu" aria-label="Menu" data-menu>
+                    <!-- Logo wrapper -->
+                    <div class="logo-wrapper">
+                        <a class="logo">
+                            <img class="logo" alt="AuksPort" src="images\SmallSquareLogoJpg-removebg-preview.png" loading="lazy">
+                        </a>
+                    </div>
+                    <!-- More navigation elements  on the menu (to the right of the logo)-->
+                     <div class="main-menu-wrapper">
+                        <div class="bg"></div><!--Background of the menu items-->
+                        <ul class="main-menu" data-main-menu> <!-- Unordered list of the main menu items -->
+                            <!-- Home link menu item-->
+                            <li class="menu-item">
+                                <a href="https://andy-clements.github.io/#top" target="_self" class="menu-link active" data-menu-link> <!-- TODO Click this menu item takes you to relative link -->
+                                    <span class="menu-link-wrapper">Home</span>
+
+                                </a>
+                            </li>
+                            <!-- Players detailed view link menu item -->
+                             <li class="menu-item">
+                                <a href="https://andy-clements.github.io/#players-detailed" target="_self" class="menu-link" data-menu-link>
+                                    <span class="menu-link-wrapper">Players</span>
+                                </a>
+                             </li>
+                             <!-- Players database view link menu item -->
+                             <li class="menu-item">
+                                <a href="https://andy-clements.github.io/#players-general" target="_self" class="menu-link" data-menu-link>
+                                    <span class="menu-link-wrapper">Database</span>
+                                </a>
+                             </li>
+                             <!-- Combines link menu item -->
+                             <li class="menu-item">
+                                <a href="https://andy-clements.github.io/Combines/index.html" target="_self" class="menu-link" data-menu-link>
+                                    <span class="menu-link-wrapper">Combines</span>
+                                </a>
+                             </li>
+                        </ul>
+                     </div>
+                </nav>
+            </div>
+        </main>
+        <div class="scrollbar" data-scrollbar-element>
+
+        </div>
     </div>
+
     <div class="container">
         <div class="intro">
             <h2>Welcome!</h2>
