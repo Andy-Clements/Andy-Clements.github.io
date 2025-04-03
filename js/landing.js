@@ -1,9 +1,4 @@
 
-/* Script for handling button actions */
-function openCombines() {
-    window.open('Combines/index.html', '_blank'); //open new tab in browser to combines.html
-}
-
 /* 
     Fetching the data JavaScript code
 */
