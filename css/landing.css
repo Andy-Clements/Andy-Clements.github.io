@@ -180,7 +180,6 @@ body {
 
 .logo {
   height:180px;
-  background-color: 
 }
 
 
@@ -396,7 +395,7 @@ body {
   }
 
   .traditional-menu .menu .main-menu .menu-link:after {
-      background: linear-gradient(to right, #000 30.56%, gray
+      background: linear-gradient(to right, #000 30.56%, gray)
   }
 
   .traditional-menu .menu .main-menu .active.menu-link .hover-svg,.traditional-menu .menu .main-menu .menu-link:hover .hover-svg,.traditional-menu .menu .main-menu .menu-link:focus .hover-svg {
