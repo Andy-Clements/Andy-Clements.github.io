@@ -519,7 +519,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #311C36 30.56%, rgba(49, 28, 54, 0) 100%);
+  background: linear-gradient(180deg, #000 30.56%, gray 100%);
   z-index: -1;
   opacity: 0;
   transition: color .3s cubic-bezier(0.785, 0.135, 0.15, 0.86),opacity .3s cubic-bezier(0.785, 0.135, 0.15, 0.86)
@@ -589,7 +589,7 @@ body {
   }
 
   .traditional-menu .menu .main-menu .menu-link:after {
-      background: linear-gradient(to right, #311C36 30.56%, rgba(49, 28, 54, 0) 100%)
+      background: linear-gradient(to right, #000 30.56%, gray
   }
 
   .traditional-menu .menu .main-menu .active.menu-link .hover-svg,.traditional-menu .menu .main-menu .menu-link:hover .hover-svg,.traditional-menu .menu .main-menu .menu-link:focus .hover-svg {
@@ -873,8 +873,8 @@ header {
   flex-direction: column; /* Stack the logo and text vertically */
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #00FF00, #000000); /* Lime Green to Black Gradient */
-  color: lime; /* Lime green text */
+  background: linear-gradient(45deg, gray, #000000); /* Gray to Black Gradient */
+  color: black; /* Lime green text */
   padding: 80px 20px; /* Increased padding for more space */
   height: 50px; /* Set height to accommodate the logo and text */
   width: 100%;
@@ -896,7 +896,7 @@ header {
 .header-text {
   z-index: 2;
   text-align: center;
-  background: linear-gradient(45deg, #00FF00, #000000); /* Lime Green to Black Gradient */
+  background: linear-gradient(45deg, gray, #000000); /* Lime Green to Black Gradient */
   background-clip: text; /* Apply the gradient to text only */
   -webkit-background-clip: text; /* For Safari */
   color: transparent; /* Makes the actual text color transparent */
@@ -927,14 +927,14 @@ header {
 .intro p {
   font-size: 1.3em;
   line-height: 1.8;
-  color: lime; /* Lime green text for readability */
+  color: black; /* Lime green text for readability */
   max-width: 900px;
   margin: 0 auto;
   animation: fadeIn 1.5s ease-out;
 }
 
 h2 {
-  color:lime;
+  color:black;
 }
 
 
@@ -977,25 +977,25 @@ h3 {
 }
 
 #transfer_data tr:nth-child(even) {
-  background-color: #000000;
-  color: #00ff00
+  background-color: gray;
+  color: black
 }
 
 #transfer_data tr:nth-child(odd) {
-  background-color: #181818; /* Slight contrast for odd */
-  color: #00ff00;
+  background-color: whitesmoke; /* Slight contrast for odd */
+  color: black;
 }
 
 #transfer_data tr:hover {
-  background-color: #00ff00;
+  background-color: gray;
   color: black;
 }
 
 /* Footer Styling */
 footer {
   text-align: center;
-  background: linear-gradient(135deg, #000000, #00FF00); /* Black to Lime Green gradient */
-  color: white; /* Lime green text */
+  background: linear-gradient(135deg, #000000, gray); /* Black to gray gradient */
+  color: black; /* Lime green text */
   padding: 20px 0;
   position: fixed;
   width: 100%;
@@ -1005,7 +1005,7 @@ footer {
 }
 
 footer a {
-  color: #00FF00; /* Lime green for footer links */
+  color: black; /* black for footer links */
   text-decoration: none;
   font-weight: 500;
 }
