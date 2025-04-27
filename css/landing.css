@@ -29,6 +29,7 @@
 
 .container,.container-fluid,.container-xxl {
   width: 100%;
+  padding-top:150px;
   padding-right: 10px;
   padding-left: 10px;
   margin-right: auto;
@@ -103,7 +104,7 @@ body {
 }
 
 /* Menu elements start */
-.traditional-menu .menu .submenu,.traditional-menu .menu .main-menu,.traditional-menu .menu .top-menu,.traditional-menu .menu .logo-wrapper,.traditional-menu .menu .side-main-menu {
+.traditional-menu .menu .submenu,.traditional-menu .menu .main-menu,.traditional-menu .menu .top-menu,.traditional-menu .menu,.traditional-menu .menu .side-main-menu {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0
@@ -146,31 +147,6 @@ body {
   }
 }
 
-@media(max-width: 1199.98px) {
-  .menu-wrapper.traditional-menu .menu .side-main-menu {
-    margin-left: 0
-  }
-
-  .menu-wrapper.traditional-menu .menu .side-main-menu:before {
-    left: 110%
-  }
-
-  .menu-wrapper.traditional-menu .menu .side-main-menu:after {
-    right: 110%
-  }
-
-  .menu-wrapper.traditional-menu .menu .side-main-menu [class^=button][class*=-social]+[class^=button][class*=-social] {
-    margin-left: 20px
-  }
-
-  .menu-wrapper.traditional-menu .menu .side-main-menu [class^=button][class*=-social]+[class^=button][class*=-social]:before {
-    width: 21px
-  }
-
-  .menu-wrapper.traditional-menu .menu .side-main-menu .social-menu-ctn {
-    transform: scale(1.2)
-  }
-}
 
 /* TRADITIONAL MENU START */ 
 .traditional-menu .menu {
@@ -182,19 +158,19 @@ body {
   align-items: stretch
 }
 
-.traditional-menu .menu .side-main-menu {
+.traditional-menu .menu .side-main-menu .logo-wrapper{
   margin-left: 20px
 }
 
-.traditional-menu .menu .logo-wrapper,.traditional-menu .menu .side-main-menu {
+.traditional-menu .menu .logo-wrapper .traditional-menu .menu .side-main-menu {
   align-items: center
 }
 
-.traditional-menu .menu .logo-wrapper,.traditional-menu .menu .side-main-menu {
+.traditional-menu .menu .logo-wrapper .traditional-menu .menu .side-main-menu {
   display: flex
 }
 
-.traditional-menu .menu .menu-burger-btn,.traditional-menu .menu .logo-wrapper,.traditional-menu .menu .side-main-menu,.traditional-menu .menu .main-menu {
+.traditional-menu .menu .menu-burger-btn .traditional-menu .menu .traditional-menu .menu .side-main-menu .traditional-menu .menu .main-menu {
   padding-top: var(--topMenuHeight)
 }
 
@@ -202,53 +178,11 @@ body {
   margin-left: -30px
 }
 
-@media all and (max-width: 1350px) {
-  .traditional-menu .menu .logo-wrapper {
-      width:190px
-  }
+.logo {
+  height:180px;
+  background-color: 
 }
 
-@media(max-width: 1199.98px) {
-  .traditional-menu .menu .logo-wrapper {
-      order:1;
-      width: 190px;
-      position: relative;
-      transform: translate(-10%);
-      z-index: 2;
-      margin-left: 0
-  }
-
-  .traditional-menu .menu .menu-burger-wrapper {
-      order: 2
-  }
-
-  .traditional-menu .menu .side-main-menu {
-      order: 3;
-      position: relative
-  }
-
-  .traditional-menu .menu .side-main-menu:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      width: 50vw;
-      height: 1px;
-      background-color: teal;
-      transform: translate(0, -50%)
-  }
-
-  .traditional-menu .menu .side-main-menu:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 100%;
-      width: 50vw;
-      height: 1px;
-      background-color: teal;
-      transform: translate(0, -50%)
-  }
-}
 
 .traditional-menu .menu .main-menu-wrapper {
   display: flex;
@@ -296,133 +230,6 @@ body {
   .traditional-menu .menu .social-menu .social-link {
       margin-bottom: 0
   }
-}
-
-.traditional-menu .menu .top-menu {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: var(--topMenuHeight)
-}
-
-.traditional-menu .menu .top-menu:after {
-  content: "";
-  width: 100vw;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: calc(((var(--container-gutter) / 2) + 10px) * -1);
-  z-index: 1;
-  background-color: #000
-}
-
-@media(max-width: 1199.98px) {
-  .traditional-menu .menu .top-menu {
-      order:2;
-      position: relative;
-      height: auto;
-      margin-top: 20px;
-      padding: 10px 0;
-      background: #000
-  }
-
-  .traditional-menu .menu .top-menu .menu-item {
-      flex: 1 0 auto
-  }
-
-  .traditional-menu .menu .top-menu::after {
-      content: none
-  }
-}
-
-.traditional-menu .menu .top-menu .menu-item {
-  position: relative;
-  z-index: 2;
-  margin: 0 16px
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item {
-  position: relative;
-  margin-left: auto;
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item svg {
-  margin-right: 5px
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item .label {
-  display: inline-block;
-  position: relative;
-  top: .1em
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item,.traditional-menu .menu .top-menu .lang-switcher.menu-item a {
-  font-size: 11px;
-  line-height: 2.1818181818;
-  text-transform: uppercase;
-  color: lime;
-  text-decoration: none;
-  transition: color .3s ease
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item a:hover {
-  color: teal
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item .other-langs {
-  position: absolute;
-  top: 100%;
-  --side-padding: 20px;
-  right: calc(-1 * var(--side-padding));
-  display: flex;
-  flex-direction: column;
-  padding: 10px var(--side-padding);
-  background: #000;
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none
-}
-
-.traditional-menu .menu .top-menu .lang-switcher.menu-item:hover .other-langs {
-  opacity: 1;
-  pointer-events: auto
-}
-
-@media(max-width: 1199.98px) {
-  .traditional-menu .menu .top-menu .menu-item {
-      margin:5px 16px
-  }
-
-  .traditional-menu .menu .top-menu .lang-switcher.menu-item {
-      margin-left: auto;
-      flex: 0 0 auto
-  }
-
-  .traditional-menu .menu .top-menu .lang-switcher.menu-item .other-langs {
-      top: auto;
-      bottom: 100%
-  }
-}
-
-.traditional-menu .menu .top-menu .menu-item .menu-link {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.7142857143;
-  letter-spacing: .14em;
-  text-decoration: none;
-  padding: 0 20px
-}
-
-.traditional-menu .menu .top-menu .menu-item .menu-link:hover {
-  text-decoration: none
 }
 
 .traditional-menu .menu .main-menu {
@@ -505,7 +312,7 @@ body {
   letter-spacing: .14em;
   text-decoration: none;
   padding: 0 20px;
-  color: teal;
+  color: lime;
   background: none;
   display: flex;
   align-items: center;
@@ -616,21 +423,6 @@ body {
   transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1),visibility 0s linear 0s
 }
 
-.traditional-menu .menu .submenu .submenu-link {
-  padding: 0;
-  background-color: transparent;
-  font-family: "Century Gothic Std",sans-serif;
-  color: teal;
-  white-space: nowrap
-}
-
-.traditional-menu .menu .submenu .submenu-link span {
-  display: block
-}
-
-.traditional-menu .menu .submenu .submenu-link:hover,.traditional-menu .menu .submenu .submenu-link:focus {
-  text-decoration: underline
-}
 
 .traditional-menu .menu .menu-burger-wrapper {
   display: flex;
@@ -819,54 +611,6 @@ body {
   background: linear-gradient(180deg, rgba(35, 30, 24, 0.8) 30px, rgba(35, 30, 24, 0) 100%)
 }
 
-
-/* ACTIVE ANIMATION KEYFRAMES START (Clicking on menu item on the left animations) Mobile specific handling
-@keyframes activeAnimation {
-  0% {
-      transform: scale(var(--scale), 1) translate(0, 0);
-      transform-origin: right center
-  }
-
-  50% {
-      transform: scale(var(--scale), 1) translate(0, var(--translate));
-      transform-origin: right center
-  }
-
-  51% {
-      transform: scale(1, 1) translate(0, var(--translate));
-      transform-origin: center center
-  }
-
-  100% {
-      transform: scale(1, 1) translate(0, var(--translate)) rotate(var(--rotate));
-      transform-origin: center center
-  }
-}
-
-@keyframes activeAnimationReverse {
-  0% {
-      transform: scale(1, 1) translate(0, var(--translate)) rotate(var(--rotate));
-      transform-origin: center center
-  }
-
-  50% {
-      transform: scale(1, 1) translate(0, var(--translate));
-      transform-origin: center center
-  }
-
-  51% {
-      transform: scale(var(--scale), 1) translate(0, var(--translate));
-      transform-origin: right center
-  }
-
-  100% {
-      transform: scale(var(--scale), 1) translate(0, 0);
-      transform-origin: right center
-  }
-}*/ 
-
-
-
 /* Header Styling - High Contrast with Charcoal Logo */
 header {
   display: flex;
@@ -879,17 +623,6 @@ header {
   height: 50px; /* Set height to accommodate the logo and text */
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-}
-
-/* Logo Styling */
-.header-logo {
-  z-index: 2;
-  margin-bottom: 15px; /* Space between logo and text */
-}
-
-.header-logo img {
-  height: 100px; /* Adjust the logo height */
-  width: auto;
 }
 
 /* Header Text Styling */
@@ -982,13 +715,13 @@ h3 {
 }
 
 #transfer_data tr:nth-child(odd) {
-  background-color: whitesmoke; /* Slight contrast for odd */
+  background-color: white; /* Slight contrast for odd */
   color: black;
 }
 
 #transfer_data tr:hover {
-  background-color: gray;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 /* Footer Styling */
