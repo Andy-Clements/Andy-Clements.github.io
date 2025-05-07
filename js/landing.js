@@ -7,36 +7,41 @@ const sheetId = '1DpkzKMnE8io4rmBz2uc8KfclJm4FpZnXazk2BacpupA'; // the id of the
 const sheetName = 'TestData01'; // Name of the sheet(tab in case multiple tabs) we want to pull the data from
 const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`; //Google sheets API v4 URL
 
-    /* 
-        Fetch data from the Google Sheet API
-        This comes with selected columns and auto scrolls on reload to the left
-    */
+/* 
+    Fetch data from the Google Sheet API
+    This comes with selected columns and auto scrolls on reload to the left
+*/
 fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         if (data.values) {
             const rows = data.values;
             const tableName = 'transfer_data';
+            const tableBody = document.querySelector(`#${tableName} tbody`);
+            const tableHeader = document.querySelector(`#${tableName} thead`);
 
-            // Display data in a table
-            const table = document.getElementById(tableName);
+            // Clear existing rows
+            tableBody.innerHTML = '';
+
             rows.forEach(row => {
                 const tr = document.createElement('tr');
 
                 // Columns from the spreadsheet we want to use
-                const columnsToInclude = [1, 2, 3, 4, 5, 6, 7, 8, 14, 18, 19, 20, 21, 22, 23];
+                const columnsToInclude = [1, 2, 3, 4, 5, 6, 7, 8, 11, 14, 18, 19, 20, 21, 22, 23];
 
                 columnsToInclude.forEach(index => {
                     const cellValue = row[index] !== undefined && row[index] !== null && row[index] !== ''
                         ? row[index]
                         : '\u00A0'; // Non-breaking space for empty cells
 
-                        const td = document.createElement('td');
-                        td.textContent = cellValue; // Set the cell content
-                        tr.appendChild(td);
+                    const td = document.createElement('td');
+                    td.textContent = cellValue; // Set the cell content
+                    tr.appendChild(td);
                 });
 
-                table.appendChild(tr);
+                // Add a data attribute for filtering based on column C (index 2)
+                tr.setAttribute('data-category', row[8]); // Assuming column C is at index 2
+                tableBody.appendChild(tr);
             });
         } else {
             console.error('No data found in the response');
@@ -50,15 +55,74 @@ fetch(apiUrl)
         if (transferDataElement) {
             transferDataElement.scrollLeft = 0; // Reset horizontal scroll position of the specific element
         }
+
+        // Add filter functionality
+        const filters = document.querySelectorAll('.filter');
+        filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+
+                    // Show all rows if 'all' is selected
+                    switch(filterValue) {
+                        case 'all':
+                            
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                row.style.display = '';
+                            });
+                            break;
+                        case 'FBS':
+                            // Hide all rows and show only the filtered ones based on column
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                if (row.getAttribute('data-category') === 'I') {
+                                    row.style.display = '';
+                                } else {
+                                    row.style.display = 'none';
+                                }
+                            });
+                            break;
+                        case 'FCS':
+                            // Hide all rows and show only the filtered ones based on column
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                if (row.getAttribute('data-category') === 'I') {
+                                    row.style.display = '';
+                                } else {
+                                    row.style.display = 'none';
+                                }
+                            });
+                            break;
+                        case 'D2':
+                            // Hide all rows and show only the filtered ones based on column
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                if (row.getAttribute('data-category') === 'II') {
+                                    row.style.display = '';
+                                } else {
+                                    row.style.display = 'none';
+                                }
+                            });
+                            break;  
+                        case 'D3':
+                            // Hide all rows and show only the filtered ones based on column
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                if (row.getAttribute('data-category') === 'III') {
+                                    row.style.display = '';
+                                } else {
+                                    row.style.display = 'none';
+                                }
+                            });
+                            break;  
+                        case 'JUCO':
+                            tableHeader.textContent = 'No data for JUCO at this time';
+                            row.style.display = 'none';
+                            break;
+                        case 'NAIA':
+                            tableHeader.textContent = 'No data for NAIA at this time';
+                            row.style.display = 'none';
+                            break;
+                    }
+            });
+        });
     })
     .catch(error => console.error('Error fetching data: ', error));
-
-/* 
-    Filter the data
-*/
-
-
-
 /*
     Sort the data
 */

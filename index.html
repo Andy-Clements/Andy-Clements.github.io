@@ -32,7 +32,7 @@
                     <!-- Logo wrapper -->
                     <div class="logo-wrapper">
                         <a class="logo">
-                            <img class="logo" alt="AuksPort" src="images\AuksPortLogo252x209.png" loading="lazy">
+                            <img class="logo" alt="AuksPort" src="images\drawing.svg" loading="lazy">
                         </a>
                     </div>
                     <!-- More navigation elements  on the menu (to the right of the logo)-->
@@ -40,47 +40,47 @@
                         <div class="bg"></div><!--Background of the menu items-->
                         <ul class="main-menu" data-main-menu> <!-- Unordered list of the main menu items -->
                             <!-- All Players link menu item-->
-                            <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#top" target="_self" class="menu-link active" data-menu-link> <!-- TODO Click this menu item takes you to relative link -->
+                            <li class="menu-item" data-filter="all">
+                                <a href="https://andy-clements.github.io/" target="_self" class="menu-link active" data-menu-link> <!-- TODO Click this menu item takes you to relative link -->
                                     <span class="menu-link-wrapper">Home</span>
 
                                 </a>
                             </li>
                             <!-- FBS Players link menu item-->
-                            <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#players-FBS" target="_self" class="menu-link" data-menu-link>
+                            <li class="menu-item" data-filter="FBS">
+                                <a href="" target="_self" class="menu-link">
                                     <span class="menu-link-wrapper">FBS</span>
 
                                 </a>
                             </li>
                             <!-- FCS Players link menu item-->
-                            <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#players-FCS" target="_self" class="menu-link" data-menu-link> 
+                            <li class="menu-item" data-filter="FCS">
+                                <a href="" target="_self" class="menu-link"> 
                                     <span class="menu-link-wrapper">FCS</span>
 
                                 </a>
                             </li>
                             <!-- D2 link menu item -->
-                             <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#players-D2" target="_self" class="menu-link" data-menu-link>
+                             <li class="menu-item" data-filter="D2">
+                                <a href="" target="_self" class="menu-link">
                                     <span class="menu-link-wrapper">Division 2</span>
                                 </a>
                              </li>
                              <!-- D3 link menu item -->
-                             <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#players-D3" target="_self" class="menu-link" data-menu-link>
+                             <li class="menu-item" data-filter="D3">
+                                <a href="" target="_self" class="menu-link">
                                     <span class="menu-link-wrapper">Division 3</span>
                                 </a>
                              </li>
                              <!-- JUCO link menu item -->
-                             <li class="menu-item">
-                                <a href="https://andy-clements.github.io/#players-JUCO" target="_self" class="menu-link" data-menu-link>
+                             <li class="menu-item" data-filter="JUCO">
+                                <a href="" target="_self" class="menu-link">
                                     <span class="menu-link-wrapper">JUCO</span>
                                 </a>
                              </li>
                             <!-- NAIA link menu item -->
-                            <li class="menu-item">
-                            <a href="https://andy-clements.github.io/#players-NAIA" target="_self" class="menu-link" data-menu-link>
+                            <li class="menu-item" data-filter="NAIA">
+                            <a href="" target="_self" class="menu-link">
                                 <span class="menu-link-wrapper">NAIA</span>
                             </a>
                             </li>
@@ -135,7 +135,12 @@
 
     <!-- Table Section -->
     <h3>Player Metrics</h3>
-    <table id="transfer_data"></table>
+    <table id="transfer_data">
+        <thead>Testing THead</thead>
+        <tbody>
+            <!-- Rows get populated here -->
+        </tbody>
+    </table>
 
     <!-- Linking to external JavaScript file-->
     <script src="js/landing.js"></script>

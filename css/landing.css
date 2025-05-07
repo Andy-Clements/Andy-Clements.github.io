@@ -65,20 +65,26 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
   text-align: left;
   background-color: #FFFFFF !important;
 }
 
-/* OLD
-body {
-  font-family: 'Poppins', sans-serif; /* Modern font *//*
-  background-color: black; /* Dark background for the page *//*
-  color:black;
-  margin: 0;
-  padding: 0;
-} 
-*/
+/* Social Media Buttons */
+.social-media-menu {
+  display: flex;
+  gap: 10px; /* Space between icons */
+}
+.social-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  fill: currentColor; /* Use current text color */
+  transition: transform 0.3s;
+}
+.social-icon:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
 /* Barba */
 .barba-container{
   --transition-speed: 0.6s
@@ -179,7 +185,10 @@ body {
 }
 
 .logo {
-  height:180px;
+  height:120px;
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* Remove any borders */
+  box-shadow: none; /* Remove any shadows */
 }
 
 
