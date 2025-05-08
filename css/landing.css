@@ -690,18 +690,24 @@ h2 {
 }
 
 /* Styling the table */
-h3 {
-  margin-left: 20px;
-  color: black;
-}
-
 #transfer_data {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
 }
 
-#transfer_data, #transfer_data th, #transfer_data td {
+#transfer_data thead {
+  font-size: 32px;
+  white-space: nowrap;
+  font-display: bold;
+  color: black;
+}
+
+#transfer_data thead th {
+  border: none;
+}
+
+#transfer_data, #transfer_data td {
   border: 1px solid #ddd;
 }
 
@@ -710,12 +716,6 @@ h3 {
   text-align: left;
 }
 
-#transfer_data th {
-  background-color: #00FF00; /* Lime green background for header */
-  color: black; /* Black text for header */
-  font-size: 1.1em;
-  font-weight: 600;
-}
 
 #transfer_data tr:nth-child(even) {
   background-color: gray;

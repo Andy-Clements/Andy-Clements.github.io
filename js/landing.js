@@ -20,9 +20,10 @@ fetch(apiUrl)
             const tableBody = document.querySelector(`#${tableName} tbody`);
             const tableHeader = document.querySelector(`#${tableName} thead`);
 
+
             // Clear existing rows
             tableBody.innerHTML = '';
-
+            
             rows.forEach(row => {
                 const tr = document.createElement('tr');
 
@@ -40,7 +41,19 @@ fetch(apiUrl)
                 });
 
                 // Add a data attribute for filtering based on column C (index 2)
-                tr.setAttribute('data-category', row[8]); // Assuming column C is at index 2
+                switch (row[11]) {
+                    case 'I':
+                        tr.setAttribute('data-category', 'FBS');
+                        break;
+                    case 'II':
+                        tr.setAttribute('data-category', 'D2');
+                        break;
+                    case 'III':
+                        tr.setAttribute('data-category', 'D3');
+                        break;
+                    default:
+                        tr.setAttribute('data-category', 'none');
+                }
                 tableBody.appendChild(tr);
             });
             // Reset the horizontal scroll position of the window
@@ -51,63 +64,47 @@ fetch(apiUrl)
             if (transferDataElement) {
                 transferDataElement.scrollLeft = 0; // Reset horizontal scroll position of the specific element
             }
+            // Function to filter rows based on category
+            function filterRows(filterValue) {
+                const rows = tableBody.querySelectorAll('tr');
+                rows.forEach(row => {
+                    if(row.children[8].textContent !== 'Div') {
+                        const category = row.getAttribute('data-category');
+                        if (filterValue === 'All') {
+                            row.style.display = ''; // Show all rows
+                        } else if (category === filterValue) {
+                            row.style.display = ''; // Show matching rows
+                        } else {
+                            row.style.display = 'none'; // Hide non-matching rows
+                        }
+                    }else{
+                        row.style.display = ''; // show the column names
+                    }
+                });
+            }
             // Add filter functionality
             const filters = document.querySelectorAll('.menu-item');
             filters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    // Find the anchor for the clicked menu item
-                    const anchor_hover = this.querySelector('a');
-                    // Set the menu-item css
-                    anchor_hover.className = 'menu-item active';
+                filter.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default anchor behavior
 
-                    // Deactivate all other css hover styling
+                    // Remove active class from all menu links
                     filters.forEach(otherItem => {
-                        const other_anchor = otherItem.querySelector('a');
-                        if (otherItem !== this) {
-                            other_anchor.className = 'menu-item';
-                        }
+                        const otherAnchor = otherItem.querySelector('a');
+                        otherAnchor.classList.remove('active'); // Remove active class
                     });
 
-                    const filterValue = this.getAttribute('data-filter');
+                    // Add active class to the clicked menu item
+                    const anchorHover = this.querySelector('a');
+                    anchorHover.classList.add('active'); // Set the clicked item as active
 
-                    // Show all rows if 'all' is selected
-                    switch(filterValue) {
-                        case 'all':
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = '';
-                            });
-                            break;
-                        case 'FBS':
-                        case 'FCS':
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = (row.getAttribute('data-category') === 'I') ? '' : 'none';
-                            });
-                            break;
-                        case 'D2':
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = (row.getAttribute('data-category') === 'II') ? '' : 'none';
-                            });
-                            break;  
-                        case 'D3':
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = (row.getAttribute('data-category') === 'III') ? '' : 'none';
-                            });
-                            break;  
-                        case 'JUCO':
-                            tableHeader.textContent = 'No data for JUCO at this time';
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = 'none';
-                            });
-                            break;
-                        case 'NAIA':
-                            tableHeader.textContent = 'No data for NAIA at this time';
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                row.style.display = 'none';
-                            });
-                            break;
-                        default:
-                            console.warn('Unknown filter value:', filterValue);
+                    const filterValue = this.getAttribute('data-filter');
+                    if(filterValue === 'FCS' || filterValue === 'JUCO' || filterValue === 'NAIA'){
+                        tableHeader.textContent = 'No information at this time';
+                    }else{
+                        tableHeader.textContent = filterValue + ' Players Metrics';
                     }
+                    filterRows(filterValue); // Call the filter function
                 });
             });
 
