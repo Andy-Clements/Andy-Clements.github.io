@@ -43,86 +43,80 @@ fetch(apiUrl)
                 tr.setAttribute('data-category', row[8]); // Assuming column C is at index 2
                 tableBody.appendChild(tr);
             });
-        } else {
-            console.error('No data found in the response');
-        }
+            // Reset the horizontal scroll position of the window
+            window.scrollTo(0, 0); // This resets both vertical and horizontal scroll positions
 
-        // Reset the horizontal scroll position of the window
-        window.scrollTo(0, 0); // This resets both vertical and horizontal scroll positions
+            // Reset horizontal scroll position of the specific element
+            const transferDataElement = document.getElementById('transfer_data');
+            if (transferDataElement) {
+                transferDataElement.scrollLeft = 0; // Reset horizontal scroll position of the specific element
+            }
+            // Add filter functionality
+            const filters = document.querySelectorAll('.menu-item');
+            filters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Find the anchor for the clicked menu item
+                    const anchor_hover = this.querySelector('a');
+                    // Set the menu-item css
+                    anchor_hover.className = 'menu-item active';
 
-        // Reset horizontal scroll position of the specific element
-        const transferDataElement = document.getElementById('transfer_data');
-        if (transferDataElement) {
-            transferDataElement.scrollLeft = 0; // Reset horizontal scroll position of the specific element
-        }
+                    // Deactivate all other css hover styling
+                    filters.forEach(otherItem => {
+                        const other_anchor = otherItem.querySelector('a');
+                        if (otherItem !== this) {
+                            other_anchor.className = 'menu-item';
+                        }
+                    });
 
-        // Add filter functionality
-        const filters = document.querySelectorAll('.filter');
-        filters.forEach(filter => {
-            filter.addEventListener('click', function() {
-                const filterValue = this.getAttribute('data-filter');
+                    const filterValue = this.getAttribute('data-filter');
 
                     // Show all rows if 'all' is selected
                     switch(filterValue) {
                         case 'all':
-                            
                             tableBody.querySelectorAll('tr').forEach(row => {
                                 row.style.display = '';
                             });
                             break;
                         case 'FBS':
-                            // Hide all rows and show only the filtered ones based on column
-                            tableBody.querySelectorAll('tr').forEach(row => {
-                                if (row.getAttribute('data-category') === 'I') {
-                                    row.style.display = '';
-                                } else {
-                                    row.style.display = 'none';
-                                }
-                            });
-                            break;
                         case 'FCS':
-                            // Hide all rows and show only the filtered ones based on column
                             tableBody.querySelectorAll('tr').forEach(row => {
-                                if (row.getAttribute('data-category') === 'I') {
-                                    row.style.display = '';
-                                } else {
-                                    row.style.display = 'none';
-                                }
+                                row.style.display = (row.getAttribute('data-category') === 'I') ? '' : 'none';
                             });
                             break;
                         case 'D2':
-                            // Hide all rows and show only the filtered ones based on column
                             tableBody.querySelectorAll('tr').forEach(row => {
-                                if (row.getAttribute('data-category') === 'II') {
-                                    row.style.display = '';
-                                } else {
-                                    row.style.display = 'none';
-                                }
+                                row.style.display = (row.getAttribute('data-category') === 'II') ? '' : 'none';
                             });
                             break;  
                         case 'D3':
-                            // Hide all rows and show only the filtered ones based on column
                             tableBody.querySelectorAll('tr').forEach(row => {
-                                if (row.getAttribute('data-category') === 'III') {
-                                    row.style.display = '';
-                                } else {
-                                    row.style.display = 'none';
-                                }
+                                row.style.display = (row.getAttribute('data-category') === 'III') ? '' : 'none';
                             });
                             break;  
                         case 'JUCO':
                             tableHeader.textContent = 'No data for JUCO at this time';
-                            row.style.display = 'none';
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                row.style.display = 'none';
+                            });
                             break;
                         case 'NAIA':
                             tableHeader.textContent = 'No data for NAIA at this time';
-                            row.style.display = 'none';
+                            tableBody.querySelectorAll('tr').forEach(row => {
+                                row.style.display = 'none';
+                            });
                             break;
+                        default:
+                            console.warn('Unknown filter value:', filterValue);
                     }
+                });
             });
-        });
+
+        } else {
+            console.error('No data found in the response');
+        }
     })
     .catch(error => console.error('Error fetching data: ', error));
+
 /*
     Sort the data
 */
